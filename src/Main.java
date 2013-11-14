@@ -33,7 +33,7 @@ public class Main extends JFrame {
             xgmin=0;
             ygmin=0;
             xgmax=800;
-            ygmax=400;
+            ygmax=300;
 
             xwmin=0;
             xwmax=240;
@@ -42,7 +42,7 @@ public class Main extends JFrame {
             ywmax=120;
 
             xgt=20;
-            ygt=400;
+            ygt=600;
         }
 
         int xg_berechnung(int xw){
@@ -55,13 +55,19 @@ public class Main extends JFrame {
 
         public void paint(Graphics g){
             //Tabelle t=new Tabelle();  darf nicht hier stehen, da dauernd bei Refresh neu eingelesen
+
+            skalieren();
             int i=1;
             double calt=0;
             g.drawLine(0,0,100,100); //Testlinie
            // for (Zeile z:t.einlesen()) {   //Einlesen darf nicht hier sein, da bei jedem Refresh neues Einlesen
              for (Zeile z:ar) {
-                System.out.println(z.getZeit()+" "+z.getC());
-                g.drawLine(i-1,300-(int)z.getC(),i,300-(int)calt);
+                //System.out.println(z.getZeit()+" "+z.getC());
+                 //int ykoord=yg_berechnung((int)calt);
+
+                 g.drawLine(xg_berechnung(i-1),yg_berechnung((int)calt),xg_berechnung(i),yg_berechnung((int)z.getC()));
+
+                // g.drawLine((i-1),300-(int)calt,i,300-(int)z.getC());
                 calt=z.getC();
                 i++;
             }
@@ -70,7 +76,7 @@ public class Main extends JFrame {
     public Main(){
         super("Grafik");
         setLayout(new FlowLayout());
-        setSize(800,400);
+        setSize(800,600);
         t=new Tabelle();
         ar=t.einlesen(); //Einlesen der ArrayList nur ein einziges Mal
     }

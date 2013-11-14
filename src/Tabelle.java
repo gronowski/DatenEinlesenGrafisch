@@ -38,12 +38,12 @@ public class Tabelle {
                     //System.out.println("Zeile: "+zeile);
                     tokens=zeile.split(";");
 
-                    for (String s:tokens) {
-
+                    //for (String s:tokens) {
+                    //System.out.println(s);
+                    //}
                         //data[zahler]=Double.parseDouble(tokens[1]);
                         ar.add(new Zeile(tokens[0],Double.parseDouble(tokens[1]),Double.parseDouble(tokens[2]),Double.parseDouble(tokens[3]),Double.parseDouble(tokens[4])));
-                        //System.out.println(s);
-                    }
+
                     //System.out.println("======");
 
                 }
